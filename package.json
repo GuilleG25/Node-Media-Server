@@ -1,0 +1,63 @@
+{
+  "_from": "git+https://github.com/dev-steverob/Node-Media-Server.git",
+  "_id": "node-media-server@2.2.4",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/node-media-server",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "https://github.com/dev-steverob/Node-Media-Server.git",
+    "rawSpec": "https://github.com/dev-steverob/Node-Media-Server.git",
+    "saveSpec": "git+https://github.com/dev-steverob/Node-Media-Server.git",
+    "fetchSpec": "https://github.com/dev-steverob/Node-Media-Server.git",
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/dev-steverob/Node-Media-Server.git#e30e2cc253f9e4437d5b91ec7822e5720b07b2f6",
+  "_spec": "https://github.com/dev-steverob/Node-Media-Server.git",
+  "_where": "/home/guillermo/streamServer",
+  "author": {
+    "name": "Mingliang Chen"
+  },
+  "bugs": {
+    "url": "https://github.com/illuspas/Node-Media-Server/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "basic-auth-connect": "^1.0.0",
+    "chalk": "^2.4.2",
+    "dateformat": "^3.0.3",
+    "express": "^4.16.4",
+    "lodash": ">=4.17.13",
+    "mkdirp": "1.0.3",
+    "ws": "^5.2.2"
+  },
+  "deprecated": false,
+  "description": "A Node.js implementation of RTMP Server",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "homepage": "https://github.com/illuspas/Node-Media-Server#readme",
+  "keywords": [
+    "rtmp",
+    "flv",
+    "server"
+  ],
+  "license": "MIT",
+  "main": "node_media_server.js",
+  "name": "node-media-server",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/illuspas/Node-Media-Server.git"
+  },
+  "scripts": {
+    "merge:git": "git checkout master && git pull upstream master && git push origin master",
+    "push:git": "clear && echo Please type your commit message && read msg && clear && git add . && git commit -m \"$msg\" && git push origin master",
+    "test": "node app.js"
+  },
+  "version": "2.2.4"
+}

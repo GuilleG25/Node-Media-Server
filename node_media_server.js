@@ -27,11 +27,6 @@ class NodeMediaServer {
       this.nrs.run();
     }
 
-    if (this.config.rtmp) {
-      this.nrs = new NodeRtmpServer(this.config);
-      this.nrs.run();
-    }
-
     if (this.config.http) {
       this.nhs = new NodeHttpServer(this.config);
       this.nhs.run();

@@ -1,5 +1,5 @@
 {
-  "_from": "git+https://github.com/dev-steverob/Node-Media-Server.git",
+  "_from": "git+https://github.com/GuilleG25/Node-Media-Server.git",
   "_id": "node-media-server@2.2.4",
   "_inBundle": false,
   "_integrity": "",
@@ -7,18 +7,18 @@
   "_phantomChildren": {},
   "_requested": {
     "type": "git",
-    "raw": "https://github.com/dev-steverob/Node-Media-Server.git",
-    "rawSpec": "https://github.com/dev-steverob/Node-Media-Server.git",
-    "saveSpec": "git+https://github.com/dev-steverob/Node-Media-Server.git",
-    "fetchSpec": "https://github.com/dev-steverob/Node-Media-Server.git",
+    "raw": "https://github.com/GuilleG25/Node-Media-Server.git",
+    "rawSpec": "https://github.com/GuilleG25/Node-Media-Server.git",
+    "saveSpec": "git+https://github.com/GuilleG25/Node-Media-Server.git",
+    "fetchSpec": "https://github.com/GuilleG25/Node-Media-Server.git",
     "gitCommittish": null
   },
   "_requiredBy": [
     "#USER",
     "/"
   ],
-  "_resolved": "git+https://github.com/dev-steverob/Node-Media-Server.git#e30e2cc253f9e4437d5b91ec7822e5720b07b2f6",
-  "_spec": "https://github.com/dev-steverob/Node-Media-Server.git",
+  "_resolved": "git+https://github.com/GuilleG25/Node-Media-Server.git#e30e2cc253f9e4437d5b91ec7822e5720b07b2f6",
+  "_spec": "https://github.com/GuilleG25/Node-Media-Server.git",
   "_where": "/home/guillermo/streamServer",
   "author": {
     "name": "Mingliang Chen"

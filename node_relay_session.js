@@ -28,7 +28,7 @@ class NodeRelaySession extends EventEmitter {
       argv.unshift('-stream_loop');
       argv.unshift('-re');
     }
-    console.log(argv)
+    console.log(argv.toString())
 
     if (this.conf.inPath.startsWith('rtsp://') && this.conf.rtsp_transport) {
       if (RTSP_TRANSPORT.indexOf(this.conf.rtsp_transport) > -1) {

@@ -130,7 +130,7 @@ class NodeRelayServer {
         //conf.inPath = hasApp ? `${conf.edge}/${stream}` : `${conf.edge}`;
         
         let newStream = stream.length ? /${stream} : stream;
-        conf.ouPath = hasApp ? ${conf.edge}${newStream}:${conf.edge}${streamPath};
+        conf.ouPath = hasApp ? `${conf.edge}${newStream}` : `${conf.edge}${streamPath}`;
         console.log(conf.ouPath);
         
         //conf.ouPath = `rtmp://127.0.0.1:${this.config.rtmp.port}${streamPath}`;

@@ -129,7 +129,7 @@ class NodeRelayServer {
         conf.inPath = hasApp ? `${conf.edge}/${stream}` : `${conf.edge}${streamPath}`;
         //conf.inPath = hasApp ? `${conf.edge}/${stream}` : `${conf.edge}`;
         
-        let newStream = stream.length ? /${stream} : stream;
+        let newStream = stream.length ? `/${stream}` : stream;
         conf.ouPath = hasApp ? `${conf.edge}${newStream}` : `${conf.edge}${streamPath}`;
         console.log(conf.ouPath);
         

@@ -22,14 +22,13 @@ class NodeRelaySession extends EventEmitter {
   run() {
     let format = this.conf.ouPath.startsWith('rtsp://') ? 'rtsp' : 'flv';
     let argv = ['-i', this.conf.inPath, '-c', 'copy', '-f', format, this.conf.ouPath];
-    if (this.conf.inPath[0] === '/' || this.conf.inPath[1] === ':'  || this.conf.inPath[0] === 'r') {
+    if (this.conf.inPath[0] === '/' || this.conf.inPath[1] === ':') {
       console.log(this.conf.inPath, this.conf.inPath[0])
       argv.unshift('-1');
       argv.unshift('-stream_loop');
       argv.unshift('-re');
     }
-    console.log(argv.toString())
-
+ 
     if (this.conf.inPath.startsWith('rtsp://') && this.conf.rtsp_transport) {
       if (RTSP_TRANSPORT.indexOf(this.conf.rtsp_transport) > -1) {
         argv.unshift(this.conf.rtsp_transport);

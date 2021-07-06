@@ -166,7 +166,7 @@ class NodeRelayServer {
         conf.inPath = `rtmp://127.0.0.1:${this.config.rtmp.port}${streamPath}`;
         //conf.ouPath = conf.appendName === false ? conf.edge : (hasApp ? `${conf.edge}/${stream}` : `${conf.edge}${streamPath}`);
         conf.ouPath = hasApp ? `${conf.edge}` : `${conf.edge}`;
-        console.log(conf.ouPath)
+        console.log(conf.ouPath,'hola');
         let session = new NodeRelaySession(conf);
         session.id = id;
         session.on('end', (id) => {

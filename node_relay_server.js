@@ -128,7 +128,12 @@ class NodeRelayServer {
         conf.ffmpeg = this.config.relay.ffmpeg;
         conf.inPath = hasApp ? `${conf.edge}/${stream}` : `${conf.edge}${streamPath}`;
         //conf.inPath = hasApp ? `${conf.edge}/${stream}` : `${conf.edge}`;
-        conf.ouPath = `rtmp://127.0.0.1:${this.config.rtmp.port}${streamPath}`;
+        
+        let newStream = stream.length ? /${stream} : stream;
+        conf.ouPath = hasApp ? ${conf.edge}${newStream}:${conf.edge}${streamPath};
+        console.log(conf.ouPath);
+        
+        //conf.ouPath = `rtmp://127.0.0.1:${this.config.rtmp.port}${streamPath}`;
         let session = new NodeRelaySession(conf);
         session.id = id;
         session.on('end', (id) => {

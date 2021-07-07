@@ -21,7 +21,7 @@ class NodeRelaySession extends EventEmitter {
 
   run() {
     let format = this.conf.ouPath.startsWith('rtsp://') ? 'rtsp' : 'flv';
-    let argv = ['-i', this.conf.inPath, '-c', 'copy', '-f', format, this.conf.ouPath];
+    let argv = ['-re -i', this.conf.ouPath, '-c', 'copy', '-f', format, this.conf.inPath];
     if (this.conf.inPath[0] === '/' || this.conf.inPath[1] === ':') {
       console.log(this.conf.inPath, this.conf.inPath[0])
       argv.unshift('-1');

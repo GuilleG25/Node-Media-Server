@@ -82,7 +82,7 @@ class NodeRelayServer {
     conf.ffmpeg = this.config.relay.ffmpeg;
     conf.inPath = urlIn;
     // conf.ouPath = `rtmp://127.0.0.1:${this.config.rtmp.port}/${app}/${name}`;
-    conf.ouPath = `${urlOut}:${this.config.rtmp.port}/${app}/${name}`;
+    conf.ouPath = `${urlOut}/${app}/${name}`;
     // conf.ouPath = `rtmp://tv.fatemall.xyz/live/GuilleG25?t=bd2251aa-9af5-44d6-aa78-e685d08773a1`;
     let session = new NodeRelaySession(conf);
     const id = session.id;

@@ -34,11 +34,12 @@ function getStreams(req, res, next) {
 }
 
 function pullStream(req, res, next) {
-  let url = req.body.url;
+  let urlIn = req.body.urlIn;
+  let urlOut = req.body.urlOut;
   let app = req.body.app;
   let name = req.body.name;
-  if (url && app && name) {
-    this.nodeEvent.emit('relayPull', url, app, name);
+  if (urlIn && urlOut &&app && name) {
+    this.nodeEvent.emit('relayPull', urlIn, urlOut, app, name);
     res.sendStatus(200);
   } else {
     res.sendStatus(400);

@@ -38,8 +38,8 @@ class NodeRelaySession extends EventEmitter {
 
     Logger.ffdebug(argv.toString());
     this.ffmpeg_exec = spawn(this.conf.ffmpeg, argv);
+    console.log(this.ffmpeg_exec)
     this.ffmpeg_exec.on('error', (e) => {
-      console.log(e)
       Logger.ffdebug(e);
     });
 

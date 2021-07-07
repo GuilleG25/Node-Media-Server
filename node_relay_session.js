@@ -21,7 +21,7 @@ class NodeRelaySession extends EventEmitter {
 
   run() {
     let format = this.conf.ouPath.startsWith('rtsp://') ? 'rtsp' : 'flv';
-    let argv = ['-re -i', this.conf.ouPath, '-c', 'copy', '-f', format, this.conf.inPath];
+    let argv = ['-re -i', this.conf.inPath, '-c', 'copy', '-f', format, this.conf.ouPath];
     if (this.conf.inPath[0] === '/' || this.conf.inPath[1] === ':') {
       console.log(this.conf.inPath, this.conf.inPath[0])
       argv.unshift('-1');
@@ -51,7 +51,6 @@ class NodeRelaySession extends EventEmitter {
     });
 
     this.ffmpeg_exec.on('close', (code) => {
-      console.log(code)
       Logger.log('[Relay end] id=', this.id);
       this.emit('end', this.id);
     });

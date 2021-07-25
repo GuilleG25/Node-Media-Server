@@ -60,7 +60,7 @@ class NodeTransSession extends EventEmitter {
     if (ouPath != ouHlsPath) {
       mkdirp.sync(ouHlsPath);
     }
-    let argv = ['-y', '-fflags', 'nobuffer','-flags', 'low_delay','-preset', 'superfast', '-tune', 'zerolatency', '-i', inPath];
+    let argv = ['-y', '-fflags', 'nobuffer', '-i', inPath];
     Array.prototype.push.apply(argv, ['-c:v', vc]);
     Array.prototype.push.apply(argv, this.conf.vcParam);
     Array.prototype.push.apply(argv, ['-c:a', ac]);

@@ -60,14 +60,14 @@ class NodeTransSession extends EventEmitter {
     if (ouPath != ouHlsPath) {
       mkdirp.sync(ouHlsPath);
     }
-    let argv = ['-y', '-fflags', 'nobuffer',, '-flags', 'low_delay', '-i', inPath];
+    let argv = ['-y', '-fflags', 'nobuffer','-flags', 'low_delay','-preset', 'superfast', '-tune', 'zerolatency', '-i', inPath];
     Array.prototype.push.apply(argv, ['-c:v', vc]);
     Array.prototype.push.apply(argv, this.conf.vcParam);
     Array.prototype.push.apply(argv, ['-c:a', ac]);
     Array.prototype.push.apply(argv, this.conf.acParam);
     Array.prototype.push.apply(argv, ['-f', 'tee', '-map', '0:a?', '-map', '0:v?', mapStr]);
     argv = argv.filter((n) => { return n }); //去空
-    console.log("hola",argv)
+    console.log("hola",spawn(this.conf.ffmpeg, argv), argv)
     this.ffmpeg_exec = spawn(this.conf.ffmpeg, argv);
     this.ffmpeg_exec.on('error', (e) => {
       Logger.ffdebug(e);

@@ -10,6 +10,7 @@ const { spawn } = require('child_process');
 const dateFormat = require('dateformat');
 const mkdirp = require('mkdirp');
 const fs = require('fs');
+const context = require("./node_core_ctx");
 
 class NodeTransSession extends EventEmitter {
   constructor(conf, id) {
@@ -42,7 +43,7 @@ class NodeTransSession extends EventEmitter {
       let mapMp4 = `${this.conf.mp4Flags}${ouPath}/${mp4FileName}|`;
       mapStr += mapMp4;
       Logger.log('[Transmuxing MP4] ' + this.conf.streamPath + ' to ' + ouPath + '/' + mp4FileName);
-      this.emit('mp4FileName', mp4FileName, this.id);
+      context.nodeEvent.emit("mp4FileName", mp4FileName, this.id);
     }
     if (this.conf.hls) {
       this.conf.hlsFlags = this.conf.hlsFlags ? this.conf.hlsFlags : '';

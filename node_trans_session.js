@@ -23,7 +23,6 @@ class NodeTransSession extends EventEmitter {
     let hlsPath = this.conf.hlsroot || this.conf.mediaroot;
     let inPath = 'rtmp://127.0.0.1:' + this.conf.rtmpPort + this.conf.streamPath;
     let ouPath = `${this.conf.mediaroot}/${this.conf.streamApp}/${this.conf.streamName}`;
-    console.log(ouPath,this.conf.streamApp,this.conf.streamName)
     let ouHlsPath = `${hlsPath}/${this.conf.streamApp}/${this.conf.streamName}`;
     let mapStr = '';
 
@@ -68,6 +67,7 @@ class NodeTransSession extends EventEmitter {
     Array.prototype.push.apply(argv, this.conf.acParam);
     Array.prototype.push.apply(argv, ['-f', 'tee', '-map', '0:a?', '-map', '0:v?', mapStr]);
     argv = argv.filter((n) => { return n }); //去空
+    console.log(this.conf.ffmpeg, argv)
     this.ffmpeg_exec = spawn(this.conf.ffmpeg, argv);
     this.ffmpeg_exec.on('error', (e) => {
       Logger.ffdebug(e);

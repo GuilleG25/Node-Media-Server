@@ -76,7 +76,7 @@ class NodeTransServer {
       conf.streamName = name;
       conf.args = args;
       if (app === conf.app || conf.app === "*") {
-        let session = new NodeTransSession(conf);
+        let session = new NodeTransSession(conf, id);
         this.transSessions.set(id, session);
         session.on('end', () => {
           this.transSessions.delete(id);

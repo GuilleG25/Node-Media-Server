@@ -12,9 +12,10 @@ const mkdirp = require('mkdirp');
 const fs = require('fs');
 
 class NodeTransSession extends EventEmitter {
-  constructor(conf) {
+  constructor(conf, id) {
     super();
     this.conf = conf;
+    this.id = id;
   }
 
   run() {
@@ -41,6 +42,7 @@ class NodeTransSession extends EventEmitter {
       let mapMp4 = `${this.conf.mp4Flags}${ouPath}/${mp4FileName}|`;
       mapStr += mapMp4;
       Logger.log('[Transmuxing MP4] ' + this.conf.streamPath + ' to ' + ouPath + '/' + mp4FileName);
+      this.emit('mp4FileName', mp4FileName, this.id);
     }
     if (this.conf.hls) {
       this.conf.hlsFlags = this.conf.hlsFlags ? this.conf.hlsFlags : '';
@@ -67,7 +69,6 @@ class NodeTransSession extends EventEmitter {
     Array.prototype.push.apply(argv, this.conf.acParam);
     Array.prototype.push.apply(argv, ['-f', 'tee', '-map', '0:a?', '-map', '0:v?', mapStr]);
     argv = argv.filter((n) => { return n }); //去空
-    console.log(this.conf.ffmpeg, argv)
     this.ffmpeg_exec = spawn(this.conf.ffmpeg, argv);
     this.ffmpeg_exec.on('error', (e) => {
       Logger.ffdebug(e);
